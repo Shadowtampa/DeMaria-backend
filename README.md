@@ -1,4 +1,4 @@
-# Setup Docker com Autenticação Laravel Sanctum Para Projetos Laravel (11)
+# Setup Docker com Autenticação Laravel Sanctum Para Projetos Laravel
 [Inspirado em EspecializaTI](https://academy.especializati.com.br)
 
 ### Passo a passo
@@ -72,3 +72,8 @@ Importar a collection de rotas que estão na raiz do projeto em:
 ```json
 Auth.postman_collection.json
 ```
+
+
+# Changelogs
+
+### Atualizado para Laravel 12
