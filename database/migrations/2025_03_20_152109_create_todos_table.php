@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->string('title'); // Título da tarefa
             $table->text('description')->nullable(); // Descrição da tarefa (opcional)
-            $table->enum('status', ['pendente', 'concluída'])->default('pendente'); // Status da tarefa
+            $table->enum('status', ['pendente', 'concluida'])->default('pendente'); // Status da tarefa
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relacionamento com usuários
 
             $table->timestamps();
