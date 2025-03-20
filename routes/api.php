@@ -24,5 +24,5 @@ Route::prefix('todo')->middleware('auth:sanctum')->group(function () {
     Route::post('/', StoreTodoController::class); //  Criar novo todo
     Route::get('{id}', GetTodoController::class); // Exibir um todo específico
     Route::put('{id}', UpdateTodoController::class); // Atualizar todo
-    // Route::delete('{id}', DestroyTodoController::class); // Deletar todo
+    Route::delete('{id}', DestroyTodoController::class); // Deletar todo
 });

@@ -21,6 +21,6 @@ class UpdateTodoController extends Controller
         return response()->json([
             'message' => 'Todo atualizado com sucesso!',
             'Todo' => $todo,
-        ], 201);
+        ], 200);
     }
 }

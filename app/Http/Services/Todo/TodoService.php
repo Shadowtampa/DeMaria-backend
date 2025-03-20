@@ -35,4 +35,10 @@ class TodoService extends Service
     {
         return Todo::findOrFail($id);
     }
+
+    public function delete(int $id)
+    {
+        return Todo::destroy($id);
+    }
+
 }
