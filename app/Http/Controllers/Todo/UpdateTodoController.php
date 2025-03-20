@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Todo\StoreTodoRequest;
+use App\Http\Requests\Todo\UpdateTodoRequest;
 use App\Http\Services\Todo\TodoService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Request;
 use App\Models\Todo;
 use Illuminate\Http\JsonResponse;
 
-class StoreTodoController extends Controller
+class UpdateTodoController extends Controller
 {
     public function __construct(private TodoService $todoService) {}
 
-    public function __invoke(StoreTodoRequest $request): JsonResponse
+    public function __invoke(UpdateTodoRequest $request): JsonResponse
     {
-        $todo = $this->todoService->store($request->toArray());
+        $todo = $this->todoService->update($request->toArray());
 
         return response()->json([
-            'message' => 'Todo criado com sucesso!',
+            'message' => 'Todo atualizado com sucesso!',
             'Todo' => $todo,
         ], 201);
     }
