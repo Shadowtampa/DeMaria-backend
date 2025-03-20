@@ -1,4 +1,3 @@
-
 # Setup Docker com Autenticação Laravel Sanctum Para Projetos Laravel (11)
 [Inspirado em EspecializaTI](https://academy.especializati.com.br)
 
@@ -22,16 +21,17 @@ DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=root
+```
 
 Suba os containers do projeto
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 
 
 Acessar o container
 ```sh
-docker-compose exec app bash
+docker compose exec app bash
 ```
 
 
@@ -40,14 +40,32 @@ Instalar as dependências do projeto
 composer install
 ```
 
+Rodar as migrations do projeto
+```sh
+php artisan migrate
+```
 
 Gerar a key do projeto Laravel
 ```sh
 php artisan key:generate
 ```
 
-Acessar o projeto
-[http://localhost:8989](http://localhost:8989)
+# Acessar o Projeto
+
+Para acessar o projeto, utilize o seguinte link:
+
+- [Projeto](http://localhost:8989)
+
+# Acessar o PHPMyAdmin
+
+Para acessar o PHPMyAdmin, utilize o seguinte link:
+
+- [PHPMyAdmin](http://localhost:8080)
+
+## Credenciais
+
+- **Usuário:** `DB_USERNAME`
+- **Senha:** `DB_PASSWORD`
 
 Importar a collection de rotas que estão na raiz do projeto em: 
 
