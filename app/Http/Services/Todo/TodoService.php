@@ -17,4 +17,9 @@ class TodoService extends Service
     {
         return Todo::create($request);
     }
+
+    public function get(int $id) : Todo
+    {
+        return Todo::findOrFail($id);
+    }
 }
