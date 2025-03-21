@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Todo\{GetTodoController, IndexTodoController, StoreTodoController, UpdateTodoController, DestroyTodoController};
+use App\Http\Controllers\Todo\{AutomateTodoController, GetTodoController, IndexTodoController, StoreTodoController, UpdateTodoController, DestroyTodoController};
 
 
 // Route::get('/user', function (Request $request) {
@@ -25,4 +25,7 @@ Route::prefix('todo')->middleware('auth:sanctum')->group(function () {
     Route::get('{id}', GetTodoController::class); // Exibir um todo específico
     Route::put('{id}', UpdateTodoController::class); // Atualizar todo
     Route::delete('{id}', DestroyTodoController::class); // Deletar todo
+
+    Route::post('/automate/', AutomateTodoController::class); // Automatizar Todo
 });
+
