@@ -27,34 +27,34 @@ services:
         networks:
             - laravel
 
-    # db mysql
+    # db postgres
     db:
-        image: mysql:5.7.22
+        image: postgres:13
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: ${DB_DATABASE:-laravel}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
-            MYSQL_USER: ${DB_USERNAME:-username}
+            POSTGRES_DB: ${DB_DATABASE:-laravel}
+            POSTGRES_USER: ${DB_USERNAME:-postgres}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-root}
         volumes:
-            - ./.docker/mysql/dbdata:/var/lib/mysql
+            - ./.docker/postgres/dbdata:/var/lib/postgresql/data
         ports:
-            - "3388:3306"
+            - "5432:5432"
         networks:
             - laravel
 
-    # PHPMyAdmin
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+    # pgAdmin
+    pgadmin:
+        image: dpage/pgadmin4
         restart: unless-stopped
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: admin
         ports:
             - "8080:80"
-        environment:
-            PMA_HOST: db
-            PMA_PORT: 3306
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-userpass}
         networks:
             - laravel
+
+    # PHPMyAdmin não é necessário para PostgreSQL, você pode usar pgAdmin ou outra ferramenta
 
     # redis
     redis:
